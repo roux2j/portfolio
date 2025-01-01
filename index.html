@@ -7,6 +7,7 @@
   <title>Portfolio - Joey ROUX</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,72 +25,14 @@
     <p data-aos="fade-left">As a Data Analyst, I combine technical expertise with a creative approach to problem-solving. My diverse background, from nursing to full-stack development, has given me a unique perspective on analyzing and visualizing data to deliver impactful insights. Passionate about transforming data into clear strategies, I’m eager to contribute to innovative projects that drive growth and make a real difference.</p>
   </section>
 
-  <!-- Diplomas Section -->
-  <section id="diplomas" class="container py-5 bg-light">
-    <h2 class="section-title" data-aos="fade-right">Diplômes & Certifications</h2>
-    <div class="row text-center" data-aos="fade-up">
-      <div class="col-md-3"><div class="badge-circle">Bachelor's Degree<br><small>Data Analyst</small></div></div>
-      <div class="col-md-3"><div class="badge-circle">Associate's Degree<br><small>Web Developer</small></div></div>
-      <div class="col-md-3"><div class="badge-circle">Associate's Degree<br><small>Web Designer</small></div></div>
-      <div class="col-md-3"><div class="badge-circle">Bachelor's Degree<br><small>Nurse</small></div></div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="container py-5">
+  <!-- Skills Section with Chart -->
+  <section id="skills" class="container py-5 bg-light">
     <h2 class="section-title" data-aos="fade-right">Compétences Techniques</h2>
-    <div class="row" data-aos="fade-left">
-      <div class="col-md-3"><span class="badge bg-violet">Python</span></div>
-      <div class="col-md-3"><span class="badge bg-violet">SQL</span></div>
-      <div class="col-md-3"><span class="badge bg-violet">Tableau</span></div>
-      <div class="col-md-3"><span class="badge bg-violet">Power BI</span></div>
-      <div class="col-md-3"><span class="badge bg-violet">MongoDB</span></div>
-      <div class="col-md-3"><span class="badge bg-violet">Git</span></div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="container py-5 bg-light">
-    <h2 class="section-title" data-aos="fade-right">Expériences Professionnelles</h2>
-    <div class="timeline" data-aos="fade-up">
-      <div class="timeline-item">
-        <h5>Data Analyst Ops | Better World</h5>
-        <p>2023 - 2024</p>
-        <p>Gestion des données, création de dashboards interactifs, et automatisation des processus avec Python.</p>
-      </div>
-      <div class="timeline-item">
-        <h5>Full-Stack Developer | Freelance</h5>
-        <p>2022 - 2023</p>
-        <p>Développement d’applications web, création de sites responsive, et gestion des bases de données.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="container py-5">
-    <h2 class="section-title" data-aos="fade-right">Projets</h2>
-    <div class="row" data-aos="fade-up">
-      <div class="col-md-4">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">Analyse des Ventes</h5>
-            <p class="card-text">Prédiction des ventes mensuelles grâce à AutoML.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">Analyse des Sentiments</h5>
-            <p class="card-text">Extraction et analyse des avis clients avec Python.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <canvas id="skills-chart" width="400" height="400"></canvas>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="container py-5 bg-light">
+  <section id="contact" class="container py-5">
     <h2 class="section-title" data-aos="fade-right">Contact</h2>
     <form id="contact-form" data-aos="fade-up">
       <div class="mb-3">
@@ -105,7 +48,6 @@
     </form>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-dark text-white text-center p-3">
     <p>&copy; 2025 Joey ROUX. Tous droits réservés.</p>
   </footer>
