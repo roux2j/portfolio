@@ -2,6 +2,7 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
+  line-height: 1.6;
 }
 
 .bg-violet {
@@ -16,17 +17,27 @@ body {
   font-size: 2rem;
   color: #6c63ff;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .badge {
   font-size: 1rem;
   padding: 10px;
   margin: 5px;
+  background: #6c63ff;
+  color: #fff;
+  border-radius: 5px;
 }
 
-.card {
-  border: none;
-  border-radius: 10px;
+.badge-circle {
+  display: inline-block;
+  padding: 20px;
+  border-radius: 50%;
+  background: #6c63ff;
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 footer {
