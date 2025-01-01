@@ -4,18 +4,29 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
-h2 {
+.bg-violet {
+  background-color: #6c63ff;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.section-title {
   font-size: 2rem;
+  color: #6c63ff;
   margin-bottom: 20px;
 }
 
-ul {
-  padding: 0;
-  list-style: none;
+.badge {
+  font-size: 1rem;
+  padding: 10px;
+  margin: 5px;
 }
 
 .card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 10px;
 }
 
 footer {
