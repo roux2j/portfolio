@@ -2,52 +2,22 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  transition: background-color 0.5s, color 0.5s;
 }
 
-body.dark {
-  background-color: #1e1e1e;
-  color: #f5f5f5;
-}
-
-header {
-  text-align: center;
-  padding: 20px;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-#threejs-intro {
-  position: relative;
-  height: 500px;
-  background: linear-gradient(135deg, #0078d4, #00a8ff);
-}
-
-#dynamic-keywords {
+h2 {
   font-size: 2rem;
-  color: white;
-  animation: fadeIn 2s infinite;
+  margin-bottom: 20px;
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(10px); }
-  50% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-10px); }
+ul {
+  padding: 0;
+  list-style: none;
 }
 
-.btn {
-  padding: 10px 20px;
-  background: #0078d4;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: transform 0.3s;
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn:hover {
-  transform: scale(1.1);
+footer {
+  font-size: 0.9rem;
 }

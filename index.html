@@ -5,77 +5,90 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Joey</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
 <body>
-  <header>
-    <nav>
-      <button data-lang="fr">Français</button>
-      <button data-lang="en">English</button>
-      <button id="theme-toggle">🌙/☀️</button>
-    </nav>
-    <h1 id="main-title">
-      <span class="lang" lang="fr">Bienvenue sur mon portfolio</span>
-      <span class="lang" lang="en" style="display:none;">Welcome to my portfolio</span>
-    </h1>
+  <!-- Header -->
+  <header class="bg-primary text-white text-center p-5">
+    <h1 data-aos="fade-down">Joey - Data Analyst</h1>
+    <p data-aos="fade-up" class="lead">Analyse prédictive | Visualisation</p>
   </header>
 
-  <section id="threejs-intro">
-    <canvas id="threejs-canvas"></canvas>
-    <div id="intro-text">
-      <h2>
-        <span class="lang" lang="fr">Mes compétences :</span>
-        <span class="lang" lang="en" style="display:none;">My Skills:</span>
-      </h2>
-      <p id="dynamic-keywords"></p>
+  <!-- About -->
+  <section id="about" class="container py-5">
+    <h2 data-aos="fade-right">À propos</h2>
+    <p data-aos="fade-left">Je suis un Data Analyst passionné, spécialisé dans la visualisation de données, l’analyse prédictive, et l’IA. J’aime transformer des données complexes en insights clairs et actionnables.</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="container py-5 bg-light">
+    <h2 data-aos="fade-right">Mes Compétences</h2>
+    <ul class="list-inline" data-aos="fade-left">
+      <li class="list-inline-item badge bg-primary text-white mx-1">Python</li>
+      <li class="list-inline-item badge bg-primary text-white mx-1">SQL</li>
+      <li class="list-inline-item badge bg-primary text-white mx-1">Tableau</li>
+      <li class="list-inline-item badge bg-primary text-white mx-1">AutoML</li>
+      <li class="list-inline-item badge bg-primary text-white mx-1">Storytelling</li>
+    </ul>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="container py-5">
+    <h2 data-aos="fade-right">Mes Projets</h2>
+    <div class="row" data-aos="fade-up">
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Analyse des ventes</h5>
+            <p class="card-text">Prédiction des ventes mensuelles grâce à AutoML.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Analyse des sentiments</h5>
+            <p class="card-text">Extraction d’opinions à partir des avis clients avec spaCy.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Temps réel</h5>
+            <p class="card-text">Suivi des transactions financières en temps réel avec Kafka et Dash.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <nav>
-    <a href="projets.html" class="btn">Projets</a>
-    <a href="about.html" class="btn">À propos</a>
-    <a href="contact.html" class="btn">Contact</a>
-  </nav>
+  <!-- Contact -->
+  <section id="contact" class="container py-5 bg-light">
+    <h2 data-aos="fade-right">Contactez-moi</h2>
+    <form id="contact-form" class="mt-4" data-aos="fade-up">
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Votre nom" required>
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" placeholder="Votre email" required>
+      </div>
+      <div class="mb-3">
+        <textarea class="form-control" placeholder="Votre message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+  </section>
 
-  <script>
-    // Gestion des mots-clés dynamiques
-    const keywords = ["Python", "SQL", "AutoML", "Big Data", "Storytelling"];
-    let index = 0;
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center p-3">
+    <p>&copy; 2025 Joey. Tous droits réservés.</p>
+  </footer>
 
-    function updateKeywords() {
-      document.getElementById("dynamic-keywords").textContent = keywords[index];
-      index = (index + 1) % keywords.length;
-    }
-    setInterval(updateKeywords, 2000);
-
-    // Three.js Animation 3D
-    import * as THREE from "https://cdn.jsdelivr.net/npm/three/build/three.module.js";
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
-    camera.position.z = 5;
-
-    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("threejs-canvas") });
-    renderer.setSize(window.innerWidth, 500);
-
-    const geometry = new THREE.SphereGeometry(1, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0xff5733 });
-    const sphere = new THREE.Mesh(geometry, material);
-    scene.add(sphere);
-
-    function animate() {
-      requestAnimationFrame(animate);
-      sphere.rotation.x += 0.01;
-      sphere.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    // Mode sombre / clair
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-    });
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js" defer></script>
+  <script>AOS.init();</script>
 </body>
 </html>
