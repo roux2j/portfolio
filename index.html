@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Joey</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <button data-lang="fr">Français</button>
+      <button data-lang="en">English</button>
+      <button id="theme-toggle">🌙/☀️</button>
+    </nav>
+    <h1 id="main-title">
+      <span class="lang" lang="fr">Bienvenue sur mon portfolio</span>
+      <span class="lang" lang="en" style="display:none;">Welcome to my portfolio</span>
+    </h1>
+  </header>
+
+  <section id="threejs-intro">
+    <canvas id="threejs-canvas"></canvas>
+    <div id="intro-text">
+      <h2>
+        <span class="lang" lang="fr">Mes compétences :</span>
+        <span class="lang" lang="en" style="display:none;">My Skills:</span>
+      </h2>
+      <p id="dynamic-keywords"></p>
+    </div>
+  </section>
+
+  <nav>
+    <a href="projets.html" class="btn">Projets</a>
+    <a href="about.html" class="btn">À propos</a>
+    <a href="contact.html" class="btn">Contact</a>
+  </nav>
+
+  <script>
+    // Gestion des mots-clés dynamiques
+    const keywords = ["Python", "SQL", "AutoML", "Big Data", "Storytelling"];
+    let index = 0;
+
+    function updateKeywords() {
+      document.getElementById("dynamic-keywords").textContent = keywords[index];
+      index = (index + 1) % keywords.length;
+    }
+    setInterval(updateKeywords, 2000);
+
+    // Three.js Animation 3D
+    import * as THREE from "https://cdn.jsdelivr.net/npm/three/build/three.module.js";
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
+    camera.position.z = 5;
+
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("threejs-canvas") });
+    renderer.setSize(window.innerWidth, 500);
+
+    const geometry = new THREE.SphereGeometry(1, 32, 32);
+    const material = new THREE.MeshBasicMaterial({ color: 0xff5733 });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      sphere.rotation.x += 0.01;
+      sphere.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Mode sombre / clair
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+  </script>
+</body>
+</html>
